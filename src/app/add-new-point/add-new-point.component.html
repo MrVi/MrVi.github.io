@@ -1,3 +1,33 @@
-<p>
-  add-new-point works!
-</p>
+<form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <label>
+    <span>Name:</span>
+    <input
+      type="text"
+      placeholder="enter name"
+      formControlName="name">
+  </label>
+  <label>
+    <span>Login:</span>
+    <input
+      type="text"
+      placeholder="enter login"
+      formControlName="login">
+  </label>
+  <label>
+    <span>Password:</span>
+    <input
+      type="password"
+      placeholder="enter password"
+      formControlName="password">
+  </label>
+  <label>
+    <span>Address:</span>
+    <input
+      type="text"
+      placeholder="enter address"
+      formControlName="address">
+  </label>
+  <button type="submit" [disabled]="form.invalid">Add new point</button>
+</form>
+
+<!--<pre><b>f.value: </b>{{form.value | json}}</pre>-->
