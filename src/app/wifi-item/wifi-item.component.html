@@ -1,0 +1,23 @@
+<div class="point__status"
+  [class.point__status_favorites]="isFavorite()"
+  (click)="changeStatus()"
+></div>
+<span class="point__name">{{point_item.name}}</span>
+<br [class.point__not_display]="!isOpen()">
+<span class="point__login"
+  [class.point__not_display]="!isOpen()"
+>login: {{point_item.login}}</span>
+<span class="point__password"
+  [class.point__not_display]="!isOpen()"
+>password: {{point_item.password}}</span>
+<br>
+<span class="point__address"
+   [class.point__not_display]="!isOpen()"
+>address: {{point_item.address}}</span>
+<div class="point__open-button"
+   [class.point__button_opened]="isOpen()"
+   (click)="showAllInfo()"
+>more</div>
+<div class="point__delete-button" (click)="deletePoint()">❌</div>
+
+

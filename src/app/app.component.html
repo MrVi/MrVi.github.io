@@ -1,0 +1,15 @@
+<div class="container clearfix">
+  <app-menu
+    (filter_change)="changeFilter($event)"
+  ></app-menu>
+  <div class="page-content">
+    <app-wifi-list
+    *ngIf="ifList()" [filter]="filter_now"
+    ></app-wifi-list>
+    <app-add-new-point
+    *ngIf="filter_now === filter.ADD"
+    ></app-add-new-point>
+  </div>
+
+  {{filter_now}}
+</div>

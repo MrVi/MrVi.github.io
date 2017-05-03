@@ -1,0 +1,69 @@
+.point__delete-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.point__open-button {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  cursor: pointer;
+  color: #999999;
+}
+
+.point__status {
+  position: absolute;
+  left: 0;
+  top: 9px;
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+  border: 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  font-size: large;
+  color: rgba(2,10,25,0.92);
+  background-color: white;
+}
+
+.point__status:hover {
+  background-color: gold;
+}
+.point__open-button:hover {
+  font-weight: bold;
+  color: rgba(2, 10, 25, 0.92);
+}
+.point__button_opened{
+   font-weight: bold;
+   color: rgba(2, 10, 25, 0.92);
+ }
+
+.point__status:after {
+  content: "\2606";
+  text-align: center;
+}
+
+.point__status_favorites {
+  background-color: gold;
+}
+
+.point__not_display{
+  display: none;
+}
+
+/*.task__status {*/
+  /*position: absolute;*/
+  /*left: 10px;*/
+  /*top: 50%;*/
+  /*transform: translateY(-50%);*/
+  /*width: 18px;*/
+  /*height: 18px;*/
+  /*border: 1px solid;*/
+  /*border-radius: 10px;*/
+  /*text-align: center;*/
+  /*color: lightgrey;*/
+  /*cursor: pointer;*/
+/*}*/

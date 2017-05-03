@@ -1,0 +1,12 @@
+<ul class="list">
+  <li *ngFor="let point of wifi_list"
+      class="wifi__point">
+  <app-wifi-item
+    [point_item]= "point"
+    (delete)="deletePoint($event)"
+    (status_change)="changeStatus($event)"
+  ></app-wifi-item>
+  </li>
+</ul>
+
+<!--{{wifi_list | json}}-->
