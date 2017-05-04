@@ -6,6 +6,9 @@
       placeholder="enter name"
       formControlName="name">
   </label>
+  <div class="error" *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
+    Name required
+  </div>
   <label>
     <span>Login:</span>
     <input
@@ -13,6 +16,9 @@
       placeholder="enter login"
       formControlName="login">
   </label>
+  <div class="error" *ngIf="form.controls.login.touched && form.controls.login.errors?.required">
+    Login required
+  </div>
   <label>
     <span>Password:</span>
     <input
@@ -20,6 +26,9 @@
       placeholder="enter password"
       formControlName="password">
   </label>
+  <div class="error" *ngIf="form.controls.password.touched && form.controls.password.errors?.required">
+    Password required
+  </div>
   <label>
     <span>Address:</span>
     <input
@@ -30,4 +39,4 @@
   <button type="submit" [disabled]="form.invalid">Add new point</button>
 </form>
 
-<!--<pre><b>f.value: </b>{{form.value | json}}</pre>-->
+<pre><b>f.value: </b>{{form.value | json}}</pre>

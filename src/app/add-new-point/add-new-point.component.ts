@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WifiService} from "../shared/model/wifi.service";
-import {FormGroup, FormBuilder} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-add-new-point',
@@ -15,9 +15,9 @@ export class AddNewPointComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: [''],
-      login: [''],
-      password: [''],
+      name: ['', [Validators.required]],
+      login: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       address: [''],
     });
   }
@@ -25,6 +25,12 @@ export class AddNewPointComponent implements OnInit {
   onSubmit(form) {
     this.wifiService.addNewPoint(this.form.get('name').value, this.form.get('login').value,
       this.form.get('password').value, this.form.get('address').value);
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      login: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      address: [''],
+    });
   }
 
 }

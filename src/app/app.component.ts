@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Filter} from "./shared/constant/filter.enum";
 
 @Component({
@@ -17,6 +17,6 @@ export class AppComponent {
 
   ifList(){
     return this.filter_now === Filter.ALL || this.filter_now === Filter.LOCAL ||
-      this.filter_now === Filter.INTERNET || this.filter_now === Filter.FAVORITES
+       this.filter_now === Filter.INTERNET //|| this.filter_now === Filter.FAVORITES
   }
 }
