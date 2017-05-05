@@ -1,6 +1,7 @@
 <ul class="list">
   <li *ngFor="let point of wifi_list"
-      class="wifi__point">
+      class="wifi__point"
+      [class.point__not_display]="!checkFilter(point)">
   <app-wifi-item
     [point_item]= "point"
     (delete)="deletePoint($event)"
@@ -10,3 +11,5 @@
 </ul>
 
 {{wifi_list | json}}
+<br>
+{{wifi_list2 | json}}

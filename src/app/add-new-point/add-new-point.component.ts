@@ -33,4 +33,8 @@ export class AddNewPointComponent implements OnInit {
     });
   }
 
+  checkNewName(name: string):Boolean {
+    return this.wifiService.checkPointName(name);
+  }
+
 }

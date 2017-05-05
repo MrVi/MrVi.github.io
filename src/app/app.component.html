@@ -1,11 +1,12 @@
 <div class="container clearfix">
-  <app-menu
-    (filter_change)="changeFilter($event)"
-  ></app-menu>
+  <app-menu>
+    <!--&lt;!&ndash;(filter_change)="changeFilter($event)"&ndash;&gt;-->
+  <!--&gt;-->
+  </app-menu>
   <div class="page-content">
-    <app-wifi-list
-    *ngIf="ifList()" [filter]="filter_now"
-    ></app-wifi-list>
+    <app-wifi-list *ngIf="ifList()" >
+      <!--<app-wifi-list *ngIf="ifList()" [filter]="filter_now" >-->
+    </app-wifi-list>
     <app-add-new-point
     *ngIf="filter_now === filter.ADD"
     ></app-add-new-point>

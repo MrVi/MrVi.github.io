@@ -16,3 +16,7 @@
   padding-bottom: 0;
   border-bottom: none;
 }
+
+.point__not_display{
+  display: none;
+}

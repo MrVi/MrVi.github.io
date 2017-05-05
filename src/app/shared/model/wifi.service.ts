@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Iwifi} from "./iwifi";
 import {FavoriteStatus} from "../constant/favorite-status.enum";
+import {PlaceStatus} from "../constant/place-status.enum";
 
 @Injectable()
 export class WifiService {
@@ -13,14 +14,16 @@ export class WifiService {
       status: FavoriteStatus.NO,
       login: 'admin',
       password: 'admin',
-      address: 'work'
+      address: 'work',
+      from: PlaceStatus.LOCAL
     },
     {
       name: 'Point2',
       status: FavoriteStatus.YES,
       login: 'Skl',
       password: 'qwerty',
-      address: 'Home'
+      address: 'Home',
+      from: PlaceStatus.LOCAL
     },
     {
       name: 'Point3',
@@ -28,6 +31,7 @@ export class WifiService {
       login: 'asd',
       password: '123',
       address: "Anne's house",
+      from: PlaceStatus.LOCAL
     },
     {
       name: 'Point4',
@@ -35,6 +39,7 @@ export class WifiService {
       login: 'dsa',
       password: '123321',
       address: "Tom's house",
+      from: PlaceStatus.LOCAL
     }
   ]
 
@@ -62,7 +67,8 @@ export class WifiService {
       login,
       password,
       address,
-      status: FavoriteStatus.NO
+      status: FavoriteStatus.NO,
+      from: PlaceStatus.LOCAL
     };
   }
 
@@ -77,4 +83,7 @@ export class WifiService {
       ({name}) => name === name_to_check
     );
   }
+
+
+
 }

@@ -11,6 +11,8 @@ import { MenuComponent } from './menu/menu.component';
 import { WifiItemComponent } from './wifi-item/wifi-item.component';
 import { AddNewPointComponent } from './add-new-point/add-new-point.component';
 import {WifiService} from "./shared/model/wifi.service";
+import {FilterMenuService} from "./shared/model/filter-menu.service";
+import {WifiGosMosService} from "./shared/model/wifi-gos-mos.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,11 @@ import {WifiService} from "./shared/model/wifi.service";
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [WifiService],
+  providers: [
+    WifiService,
+    FilterMenuService,
+    WifiGosMosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

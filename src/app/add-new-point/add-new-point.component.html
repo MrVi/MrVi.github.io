@@ -9,6 +9,9 @@
   <div class="error" *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
     Name required
   </div>
+  <div class="error" *ngIf="form.controls.name.touched && checkNewName(form.controls.name.value)">
+    Point with this name already exists
+  </div>
   <label>
     <span>Login:</span>
     <input
