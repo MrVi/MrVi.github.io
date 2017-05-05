@@ -19,14 +19,18 @@ export class WifiListComponent implements OnInit {
   wifi_list: Iwifi[] = [];
   filter_now : Filter;
   subscription: Subscription;
-  wifi_list2: GosPoint[]  = [];
-  wifi_list3: Iwifi[] = [];
+
+
+  @Input() search_string: string;
 
   constructor(private wifiService: WifiService,
               private menuService: FilterMenuService,
               private wifiGosService: WifiGosMosService) {
-    this.subscription = this.menuService.navItem$.subscribe(filter => this.filter_now = filter);
-    console.log('--inTodoListfunc', this.filter_now);
+    this.subscription = this.menuService.navItem$.subscribe(filter => {
+      this.filter_now = filter;
+      this.updateList();
+    });
+    // console.log('--inTodoListfunc', this.filter_now);
   }
 
   checkFilter(point_to_check: Iwifi): boolean {
@@ -38,7 +42,11 @@ export class WifiListComponent implements OnInit {
         return point_to_check.from === PlaceStatus.LOCAL;
 
       case Filter.INTERNET:
-        return point_to_check.from === PlaceStatus.INTERNET;
+      return point_to_check.from === PlaceStatus.INTERNET;
+
+      case Filter.SEARCH:
+        // console.log(this.search_string);
+        return this.wifiService.checkIfContain(this.search_string, point_to_check);
 
       default:
         return true;
@@ -68,21 +76,13 @@ export class WifiListComponent implements OnInit {
   }
 
   private updateList(){
+    this.wifiGosService.initWifiList().subscribe((res) => {
+      console.log(res);
+      this.wifiService.concatWithInternet(res);
+      console.log('END', this.wifi_list);
+    });
     this.wifi_list = this.wifiService.getWifiList();
-    this.wifiGosService.getWifiList().subscribe((res) => {
-      console.log(res);
-      this.wifi_list2 = res;
-      console.log(this.wifi_list2[0].ID);
-    });
-
-    this.wifiGosService.getWifiList2().subscribe((res) => {
-      this.wifi_list = res;
-    });
-
-    this.wifiGosService.getWifiList3().subscribe((res) => {
-      console.log(res);
-      this.wifi_list3 = res;
-      console.log(this.wifi_list3);
-    });
   }
+
+
 }

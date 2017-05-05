@@ -84,6 +84,16 @@ export class WifiService {
     );
   }
 
+  checkIfContain(string_to_check: string, point_to_check: Iwifi): boolean {
+    return (point_to_check.name.indexOf(string_to_check) >= 0) ||
+      (point_to_check.login.indexOf(string_to_check) >= 0) ||
+      (point_to_check.address.indexOf(string_to_check) >= 0);
+  }
 
-
+  concatWithInternet(wifi_list_from_internet){
+    wifi_list_from_internet = wifi_list_from_internet.filter(
+      point => !this.checkPointName(point.name)
+    );
+    this.wifi_list = this.wifi_list.concat(wifi_list_from_internet);
+  }
 }

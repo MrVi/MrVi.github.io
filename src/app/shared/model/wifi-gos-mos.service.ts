@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Http, Response} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs";
@@ -14,9 +14,6 @@ const BASE_URL = 'https://wifi-68d5d.firebaseio.com/';
 @Injectable()
 export class WifiGosMosService {
 
-  temp: GosPoint[] = [];
-  temp2: Iwifi[] = [];
-
   constructor(private http: Http) {
   }
 
@@ -25,44 +22,25 @@ export class WifiGosMosService {
         .map(res => res.json())
   }
 
-
-  getWifiList2(){
-    this.getWifiList().subscribe((res) => {
-      console.log(res);
-      this.temp = res;
-      this.temp2 = res.map(point => {
-        return this.createNewPoint(point);
-      });
-      return this.temp2;
-    });
-  }
-
-  getWifiList3(): Observable<Iwifi[]>{
+  initWifiList(): Observable<Iwifi[]>{
     return this.http.get(`${BASE_URL}.json`)
       .map(res => res.json())
-      .map(point => {
-        return this.createNewPoint(point);
-      });
+      .map(pointList => pointList.map(
+        point => this.createNewPoint(point)
+        )
+      );
   }
 
   createNewPoint(gos_point: GosPoint): Iwifi {
     return {
-      name: gos_point.WiFiName,
+      name: (gos_point.WiFiName + gos_point.ID),
       login: gos_point.WiFiName,
       password: '',
       address: gos_point.Location,
       status: FavoriteStatus.NO,
-      from: PlaceStatus.LOCAL
+      from: PlaceStatus.INTERNET
     }
   }
-    // .map(data => {
-    //   const result = Object.keys(data)
-    //     .map(key => {
-    //       return Object.assign({}, data[key], {key});
-    //     });
-    //
-    //   console.log('--- result', result);
-    //   return result;
-    // })
+
 
 }

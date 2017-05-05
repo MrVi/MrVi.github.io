@@ -13,6 +13,7 @@ import { AddNewPointComponent } from './add-new-point/add-new-point.component';
 import {WifiService} from "./shared/model/wifi.service";
 import {FilterMenuService} from "./shared/model/filter-menu.service";
 import {WifiGosMosService} from "./shared/model/wifi-gos-mos.service";
+import { ListSearchComponent } from './list-search/list-search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {WifiGosMosService} from "./shared/model/wifi-gos-mos.service";
     WifiListComponent,
     MenuComponent,
     WifiItemComponent,
-    AddNewPointComponent
+    AddNewPointComponent,
+    ListSearchComponent
   ],
   imports: [
     BrowserModule,

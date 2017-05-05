@@ -1,19 +1,17 @@
 <div class="container clearfix">
-  <app-menu>
-    <!--&lt;!&ndash;(filter_change)="changeFilter($event)"&ndash;&gt;-->
-  <!--&gt;-->
-  </app-menu>
+  <app-menu></app-menu>
   <div class="page-content">
     <app-wifi-list *ngIf="ifList()" >
-      <!--<app-wifi-list *ngIf="ifList()" [filter]="filter_now" >-->
     </app-wifi-list>
     <app-add-new-point
     *ngIf="filter_now === filter.ADD"
     ></app-add-new-point>
-
+    <p *ngIf="filter_now === filter.ABOUT">
+      Some text about this?
+    </p>
+    <app-list-search
+      *ngIf="filter_now === filter.SEARCH"
+    ></app-list-search>
     <!--<router-outlet></router-outlet>-->
   </div>
-
-
-  {{filter_now}}
 </div>

@@ -12,6 +12,6 @@ export class FilterMenuService {
 
   changeFilter(new_filter) {
     this.current_filter.next(new_filter);
-    console.log('----Filter', this.current_filter);
+    // console.log('----Filter', this.current_filter);
   }
 }
