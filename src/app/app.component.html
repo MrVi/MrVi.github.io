@@ -1,17 +1,19 @@
 <div class="container clearfix">
   <app-menu></app-menu>
   <div class="page-content">
-    <app-wifi-list *ngIf="ifList()" >
-    </app-wifi-list>
-    <app-add-new-point
-    *ngIf="filter_now === filter.ADD"
-    ></app-add-new-point>
-    <p *ngIf="filter_now === filter.ABOUT">
-      Some text about this?
-    </p>
-    <app-list-search
-      *ngIf="filter_now === filter.SEARCH"
-    ></app-list-search>
-    <!--<router-outlet></router-outlet>-->
+
+    <!--<app-wifi-list *ngIf="ifList()" >-->
+    <!--</app-wifi-list>-->
+    <!--<app-add-new-point-->
+    <!--*ngIf="filter_now === filter.ADD"-->
+    <!--&gt;</app-add-new-point>-->
+    <!--<p *ngIf="filter_now === filter.ABOUT">-->
+      <!--Some text about this?-->
+    <!--</p>-->
+    <!--<app-list-search-->
+      <!--*ngIf="filter_now === filter.SEARCH"-->
+    <!--&gt;</app-list-search>-->
+
+    <router-outlet></router-outlet>
   </div>
 </div>

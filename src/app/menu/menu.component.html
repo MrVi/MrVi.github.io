@@ -1,27 +1,34 @@
 <div class="sidebar-content">
   <ul class="sidebar-nav">
     <li class="sidebar-brand">
-      <a href="#" (click)="changeFilter(filter.ALL)">
+      <a routerLink="wifi-list" routerLinkActive="active"
+         (click)="changeFilter(filter.ALL)">
         Start all
       </a>
     </li>
     <li>
-      <a href="#" (click)="changeFilter(filter.FAVORITES)">Favorites</a>
+      <a routerLink="wifi-list" routerLinkActive="active"
+         (click)="changeFilter(filter.FAVORITES)">Favorites</a>
     </li>
     <li>
-      <a href="#" (click)="changeFilter(filter.ADD)">Add new</a>
+      <a routerLink="add-new-point" routerLinkActive="active"
+         (click)="changeFilter(filter.ADD)">Add new</a>
     </li>
     <li>
-      <a href="#" (click)="changeFilter(filter.LOCAL)">Local</a>
+      <a routerLink="wifi-list" routerLinkActive="active"
+         (click)="changeFilter(filter.LOCAL)">Local</a>
     </li>
     <li>
-      <a href="#" (click)="changeFilter(filter.INTERNET)">Internet</a>
+      <a routerLink="wifi-list" routerLinkActive="active"
+         (click)="changeFilter(filter.INTERNET)">Internet</a>
     </li>
     <li>
-      <a href="#" (click)="changeFilter(filter.SEARCH)">Search</a>
+      <a routerLink="list-search" routerLinkActive="active"
+         (click)="changeFilter(filter.SEARCH)">Search</a>
     </li>
     <li>
-      <a href="#" (click)="changeFilter(filter.ABOUT)">About</a>
+      <a routerLink="about" routerLinkActive="active"
+         (click)="changeFilter(filter.ABOUT)">About</a>
     </li>
   </ul>
 </div>
